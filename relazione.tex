@@ -10,7 +10,7 @@
 
 \title{\textbf{Transistor bipolare:} interruttore}
 \author{Canteri Marco, Biasi Lorenzo, Damiani Emily}
-\date{}  % Can use \today
+\date{\today}  % Can use \today
 
 \begin{document}
 \maketitle
@@ -27,8 +27,28 @@ Abbiamo studiato il funzionamento di un transistor, analizzandone la condizione 
 corrente collettore.
 \end{itemize}
 \section{Procedimento}
+<<<<<<< HEAD
 È stato costruito il circuito in figura (), dove $R_c = 10001 \pm \Omega$, $R_b$ decade variabile e come sorgente di potenziale $V=15$. Variando la resistenza $R_b$ nel circuito di controllo del transistor si è misurata la corrente $i_c$ con il generatore di $V$, con il multimetro si è misurata la corrente $i_b$ e infine con il tester analogico si è misurata la differenza di potenziale ai capi del collettore e dell'emissore del transistor $V_{ce}$ fino a saturazione.
 
 Abbiamo poi costruito il circuito in figura(), collegando la base del transistor a un generatore d'onda quadra.
+=======
+\begin{figurehere}
+\begin{circuitikz}
+\draw (0,0) node[ground, rotate=180]{} to [battery] (0,-1.5)
+to [R=$R_c$] (0,-3)
+to [leD*] (0,-4.5);
+\draw
+(0,-5.0) node[npn] (npn) {}
+(npn.emitter) node[ground]{};
+\draw (0,-1.5)
+to [short] (-1.5,-1.5)
+to [ospst] (-1.5,-3)
+to [R=$R_b$] (-1.5,-5.0)
+to [short] (npn.base);
+\end{circuitikz}
+\caption{Transistor come interruttore}
+\end{figurehere}
+È stato costruito il circuito in figura (), dove $R_c = 1001.0 \pm \Omega$, $R_b$ decade variabile e come sorgente di potenziale $V=15$. Variando la resistenza $R_b$ nel circuito di controllo del transistor si è misurata la corrente $i_c$ con il generatore di $V$, con il multimetro si è misurata la corrente $i_b$ e infine con il tester analogico si è misurata la differenza di potenziale ai capi del collettore e dell'emissore del transistor $V_{ce}$.
+>>>>>>> c2081078f353c7f4bae7f6b281a9db2bdca47bac
 \end{body}
 \end{document}
