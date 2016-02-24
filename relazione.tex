@@ -28,7 +28,7 @@ corrente collettore.
 \end{itemize}
 \section{Procedimento}
 È stato costruito il circuito in figura \eqref{circuito1}, dove $R_c = 1001 \pm \Omega$, $R_b$ decade variabile e come sorgente di potenziale $V=15 V$. Variando la resistenza $R_b$ nel circuito di controllo del transistor si può far variare la corrente di base che entra nel transistor, è stata quindi misurata la corrente $i_c$ con il generatore di $V$, con il multimetro si è misurata la corrente $i_b$ e sempre col multimetro si è misurata la differenza di potenziale ai capi del collettore e dell'emissore del transistor $V_{ce}$.
-Abbiamo poi costruito il circuito in figura \eqref{circuito2}, collegando la base del transistor a un generatore d'onda quadra.
+Abbiamo poi costruito il circuito in figura \eqref{circuito2}, collegando la base del transistor a un generatore d'onda quadra, $R_b$ è stata fissata a $10 \text{k}\Omega$. In questo modo si è costruito un interruttore veloce con frequenza a piacimento. Il segnale di controllo $V_{in}$ del transistor è un onda quadra variabile tra 0 e 5 $V$
 
 \begin{figurehere}
 \begin{subfigure}[H]{0.2\textwidth}
@@ -62,6 +62,15 @@ to [R=$R_b$] (npn.base);
 \end{circuitikz}
 \caption{Transistor con interruttore veloce}\label{circuito2}
 \end{subfigure}
+\end{figurehere}
+\section{Analisi dati}
+Con l'interruttore chiuso abbiamo variato la resistenza $R_b$ e misurato le correnti, con l'obbiettivo di cercare la minima corrente $i_b$ di saturazione del transistor, ovvero quando la tensione $V_{ce}$, 
+dove quindi il transistor funziona come corto circuito. In questa condizione la corrente $i_c$ che scorre nel transistor è indipendente dalla corrente $i_b$ della base.  
+\newpage
+\begin{figurehere}
+\centering
+\includegraphics[width=0.5\textwidth]{sat.png}
+\caption{Zona di saturazione e zona attiva del transistor}
 \end{figurehere}
 \end{body}
 \end{document}
