@@ -28,9 +28,10 @@ corrente collettore.
 \end{itemize}
 \section{Procedimento}
 È stato costruito il circuito in figura \eqref{circuito1}, dove $R_c = 1001 \pm \Omega$, $R_b$ decade variabile e come sorgente di potenziale $V=15 V$. Variando la resistenza $R_b$ nel circuito di controllo del transistor si può far variare la corrente di base che entra nel transistor, è stata quindi misurata la corrente $i_c$ con il generatore di $V$, con il multimetro si è misurata la corrente $i_b$ e sempre col multimetro si è misurata la differenza di potenziale ai capi del collettore e dell'emissore del transistor $V_{ce}$.
-Abbiamo poi costruito il circuito in figura(), collegando la base del transistor a un generatore d'onda quadra.
-\\
+Abbiamo poi costruito il circuito in figura \eqref{circuito2}, collegando la base del transistor a un generatore d'onda quadra.
+
 \begin{figurehere}
+\begin{subfigure}[H]{0.2\textwidth}
 \begin{circuitikz}
 \draw (0,0) node[ground, rotate=180]{} to [battery, l=$V$] (0,-1.5)
 to [R=$R_c$] (0,-3)
@@ -45,6 +46,22 @@ to [R=$R_b$] (-1.5,-5.0)
 to [short] (npn.base);
 \end{circuitikz}
 \caption{Transistor come interruttore}\label{circuito1}
+\end{subfigure}
+\hfill
+\begin{subfigure}[H]{0.2\textwidth}
+\begin{circuitikz}[scale=0.82]
+\draw (0,0) node[ground, rotate=180]{} to [battery, l=$V$] (0,-1.5)
+to [R=$R_c$] (0,-3)
+to [leD*] (0,-4.5);
+\draw
+(0,-5.0) node[npn] (npn) {}
+(npn.emitter) node[ground]{};
+\draw (-3,-7)node[ground]{}
+to [sqV, l =$V_{in}$] (-3,-5)
+to [R=$R_b$] (npn.base);
+\end{circuitikz}
+\caption{Transistor con interruttore veloce}\label{circuito2}
+\end{subfigure}
 \end{figurehere}
 \end{body}
 \end{document}
