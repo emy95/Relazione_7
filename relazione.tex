@@ -27,7 +27,7 @@
 corrente collettore.
 \end{itemize}
 \section{Procedimento}
-È stato costruito il circuito in figura \eqref{circuito1}, dove $R_c = 1001 \pm \Omega$, $R_b$ decade variabile e come sorgente di potenziale $V=15 V$. Variando la resistenza $R_b$ nel circuito di controllo del transistor si può far variare la corrente di base che entra nel transistor, è stata quindi misurata la corrente $i_c$ con il generatore di $V$, con il multimetro si è misurata la corrente $i_b$ e sempre col multimetro si è misurata la differenza di potenziale ai capi del collettore e dell'emissore del transistor $V_{ce}$.
+È stato costruito il circuito in figura \eqref{circuito1}, dove $R_c = 1001 \pm 0.5 \Omega$, $R_b$ decade variabile e come sorgente di potenziale $V = 15 V$. Variando la resistenza $R_b$ nel circuito di controllo del transistor si può far variare la corrente di base che entra nel transistor, è stata quindi misurata la corrente $i_c$ con il generatore di $V$, con il multimetro si è misurata la corrente $i_b$ e poi sempre col multimetro si è misurata la differenza di potenziale ai capi del collettore e dell'emissore del transistor $V_{ce}$. Bisogna notare che in teoria abbiamo cambiato il circuito per effettuare la misura di $i_b$ e $V_{ce}$ con il multimetro digitale, ma di fatto possiamo calcolare che i valori raccolti si devono discostare di meno di $1 \%$ dai valori che avremmo misurato usando due multimetri.
 Abbiamo poi costruito il circuito in figura \eqref{circuito2}, collegando la base del transistor a un generatore d'onda quadra, $R_b$ è stata fissata a $10 \text{k}\Omega$. In questo modo si è costruito un interruttore veloce con frequenza a piacimento. Il segnale di controllo $V_{in}$ del transistor è un onda quadra variabile tra 0 e 5 $V$
 
 \begin{figurehere}
@@ -65,11 +65,21 @@ to [R=$R_b$] (npn.base);
 \end{figurehere}
 \section{Analisi dati}
 Con l'interruttore chiuso abbiamo variato la resistenza $R_b$ e misurato le correnti, con l'obbiettivo di cercare la minima corrente $i_b$ di saturazione del transistor, ovvero quando la tensione $V_{ce}$, 
-dove quindi il transistor funziona come corto circuito. In questa condizione la corrente $i_c$ che scorre nel transistor è indipendente dalla corrente $i_b$ della base.  
+dove quindi il transistor funziona come corto circuito. In questa condizione la corrente $i_c$ che scorre nel transistor è indipendente dalla corrente $i_b$ della base. 
+Dal grafico possiamo vedere che il valore di minimo di $i_b$ che manda in saturazione il transistor è circa $45 \mu\text{A}$
+Sappiamo che nella zona attiva possiamo approssimare una legge lineare che collega $i_c$ a $i_b$: 
+\begin{equation}
+i_c = \beta i_b
+\end{equation}
+ Possiamo perciò fare una regressione lineare per i dati nella zona attiva e la pendenza della retta ottenuta sarà una buona approssimazione di $\beta$. Come valore di $\beta$ abbiamo ricavato $313.0 \pm 8.7$, che sta tra i valori consentiti dal datasheet ($\beta_{teo} \in [200 \quad 450]$) con un $\chi^2/\text{DOF} = 1.39$. Possiamo anche calcolare $\beta$ rigirando l'equazione(). Il valore massimo e minimo ottenuti dai nostri dati sono: max $349 \pm 25$,  min $209 \pm 61$. Possiamo vedere come pure questi stiano nell'intervallo dato dal datasheet.
+
+Possimao vedere nel grafico () come nella zona di saturazione $V_{ce}$ si avvicini idealmente a essere nullo e invece più $i_b$ è basso più l'impedenza del transistor aumenta.
+
+
 \newpage
 \begin{figurehere}
 \centering
-\includegraphics[width=0.5\textwidth]{sat.png}
+\includegraphics[width=1\textwidth]{sat.png}
 \caption{Zona di saturazione e zona attiva del transistor}
 \end{figurehere}
 \end{body}
