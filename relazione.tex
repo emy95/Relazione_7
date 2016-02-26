@@ -74,7 +74,37 @@ i_c = \beta i_b
  Possiamo perciò fare una regressione lineare per i dati nella zona attiva e la pendenza della retta ottenuta sarà una buona approssimazione di $\beta$. Come valore di $\beta$ abbiamo ricavato $313.0 \pm 8.7$, che sta tra i valori consentiti dal datasheet ($\beta_{teo} \in [200 \quad 450]$) con un $\chi^2/\text{DOF} = 1.39$. Possiamo anche calcolare $\beta$ rigirando l'equazione(). Il valore massimo e minimo ottenuti dai nostri dati sono: max $349 \pm 25$,  min $209 \pm 61$. Possiamo vedere come pure questi stiano nell'intervallo dato dal datasheet.
 
 Possimao vedere nel grafico () come nella zona di saturazione $V_{ce}$ si avvicini idealmente a essere nullo e invece più $i_b$ è basso più l'impedenza del transistor aumenta.
+(seconda parte) 
 
+Passiamo ora al secondo circuito e verifichiamo il comportamento del transistor come interruttore per il led. Nella configurazione a interruttore aperto, ovvero quando il voltaggio del generatore è a $0 V$ e non scorre corrente nella base, la corrente nel collettore $i_c$ è nulla. Non scorrendo quindi corrente nel circuito, il led rimane spento. Analizziamo adesso la configurazione a interruttore chiuso. Nella base, collegata al generatore di $ 5 V$, scorre una corrente pari a 
+\begin{equation}
+i_b = \frac{5V - V_{BE}}{R_b}  
+\end{equation}
+ricavibile direttamente dalla legge di Kirchoff per il circuito di potenza. Passando ora al resto del circuito, bisogna notare che in queste condizioni il transistor sta operando in regione di saturazione. In questo caso la corrente del collettore è indipendente dalla corrente $i_b$ e si può determinare a partire dalla legge di Kirchoff: 
+\begin{equation}
+i_c = \frac{15 - V_{cesat}}{R_c}
+\end{equation}
+Questa volta la corrente risulta sufficiente ad accendere il led. 
+Usando il transitor in questa modalità e variando la frequenza dell'onda quadra è possibile fare lampeggiare il led più o meno velocemente. Modificando la frequenza ci si accorge immediatamente che per valori superiori ai $ 50-60 Hz$, la fase di spegnimento e accensione sono talmente veloci che l'occhio non è più in grado di distinguerli e la luce sembra non essere più intermittente. \newline
+Analizziamo meglio il problema, utilizzando una modalità del generatore d'onda quadra: il duty cycle. Con questo termine si intende la percentuale di periodo dell'onda in cui l'onda ha un valore diverso dal valore nullo. Utilizzando il duty cycle si può quindi rendere più lungo la parte non nulla dell'onda e quindi tenere spento il led per il minor tempo possibile. In laboratorio, si sono provate diversi valori di frequenza e trovato il valore di duty cycle che rendeva il segnale luminoso praticamente continuo. 
+
+
+ \begin{table}[H]
+\centering
+\begin{tabular}{c|c}
+\toprule
+ $f$ & Duty Cycle\\
+\midrule
+$ 25$ & $80 \% $  \\
+$30$ &  $80 \%$ \\
+$50$ &  $60 \%$ \\
+$60$ &  $20\%$\\
+\bottomrule
+\end{tabular}
+\end{table}
+E' evidente dalla tabella che per i valori più alti di frequenza, già con duty cycle bassi, il farfallio luminoso non è più evidente. \newline
+Per valutare bene il fenomeno è però necessario anche considerare il tempo di persistenza dell'occhio umano. Difatti, ogni volta che osserviamo un'immagine o un oggetto, l'immagine di esso che si forma sulla retina rimane per un certo tempo anche se l'immagine cambia. La persistenza nella retina dura molto poco, circa $ 1/50 s $, quindi oltre ad una frequenza di $ 0.02 s $, l'occhio dovrebbe sovrapporre i segnali precedente e successivo provenienti da una fonte con una frequenza più alta. 
+ 
 
 \newpage
 \begin{figurehere}
